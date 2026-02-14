@@ -4,18 +4,293 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kanapka od Pepka</title>
+  <meta name="description" content="Kanapky na plesy, rauty, oslavy a firemní večírky. Čerstvé suroviny, moderní kombinace, klasika i nápad." />
+  <link rel="canonical" href="https://kanapkaodpepka.cz/" />
+
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --card:#11131a;
+      --text:#f4f6fb;
+      --muted:#b9c0d4;
+      --line:rgba(255,255,255,.10);
+      --accent:#ffcc33;
+      --accent2:#ff6a3d;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 20px;
+      --max: 1020px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(255,204,51,.20), transparent 60%),
+        radial-gradient(800px 500px at 85% 15%, rgba(255,106,61,.18), transparent 60%),
+        radial-gradient(900px 700px at 50% 90%, rgba(120,90,255,.12), transparent 60%),
+        var(--bg);
+      line-height:1.5;
+    }
+
+    a{color:inherit; text-decoration:none}
+    a.under{text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding: 28px 18px 70px;}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 10px 6px 24px;
+    }
+    .brand{
+      display:flex; gap:10px; align-items:center;
+      font-weight:800; letter-spacing:.6px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 12px 30px rgba(255, 150, 50, .25);
+    }
+    .navlinks{display:flex; gap:14px; color:var(--muted); font-weight:600; font-size:14px;}
+    .navlinks a{padding:10px 12px; border-radius:12px; border:1px solid transparent}
+    .navlinks a:hover{border-color:var(--line); background: rgba(255,255,255,.04)}
+
+    .hero{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 260px at 30% 0%, rgba(255,204,51,.18), transparent 65%),
+                  radial-gradient(600px 260px at 80% 10%, rgba(255,106,61,.16), transparent 65%);
+      pointer-events:none;
+    }
+
+    .grid{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    h1{
+      margin:0;
+      font-size: clamp(34px, 5vw, 54px);
+      letter-spacing: .6px;
+      line-height:1.05;
+    }
+    .tag{
+      display:inline-flex; gap:10px; align-items:center;
+      margin-top: 14px;
+      color: var(--muted);
+      font-weight:600;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      font-size: 13px;
+      color: var(--muted);
+      white-space:nowrap;
+    }
+
+    .lead{
+      margin: 14px 0 0;
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .ctaRow{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 18px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-weight: 800;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      transition: transform .08s ease, background .12s ease, border-color .12s ease;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.18);}
+    .btn.primary{
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#1a1200;
+      box-shadow: 0 18px 40px rgba(255, 150, 50, .20);
+    }
+    .btn.primary:hover{background: linear-gradient(135deg, #ffd34d, #ff7a52);}
+
+    .card{
+      border:1px solid var(--line);
+      background: rgba(15,17,23,.65);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.25);
+      position:relative;
+    }
+    .card h3{margin:0 0 10px; font-size: 16px; letter-spacing:.2px}
+    .card p{margin:0; color:var(--muted)}
+    .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px}
+    .li{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .dot{
+      width:10px; height:10px; margin-top:5px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      flex: 0 0 auto;
+    }
+
+    .section{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 900px){
+      .section{grid-template-columns: 1fr}
+    }
+
+    .small{
+      font-size: 13px;
+      color: var(--muted);
+      opacity: .9;
+    }
+
+    .footer{
+      margin-top: 16px;
+      padding: 18px 6px 0;
+      color: var(--muted);
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center;
+    }
+
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 8px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+    }
+  </style>
 </head>
-<body style="font-family: system-ui; max-width: 900px; margin: 0 auto; padding: 40px;">
-  <h1>KANAPKA OD PEPKA</h1>
-  <p><strong>kanapky, na které se budou ptát</strong></p>
-  <p>Eventy • oslavy • večírky</p>
 
-  <h2>Kontakt</h2>
-  <p>
-    E-mail: <a href="mailto:kanapkaodpepka@gmail.com">kanapkaodpepka@gmail.com</a><br>
-    Telefon: <a href="tel:+420728206101">+420 728 206 101</a>
-  </p>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>KANAPKA OD PEPKA</div>
+      </div>
+      <div class="navlinks">
+        <a href="#nabidka">Nabídka</a>
+        <a href="#jak">Jak to funguje</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </div>
 
-  <p style="opacity:.7;">ZAL. 2026</p>
-</body>
-</html>
+    <main class="hero">
+      <div class="grid">
+        <div>
+          <h1>Kanapky, na které se budou ptát.</h1>
+
+          <div class="tag">
+            <span class="pill">Čerstvé suroviny</span>
+            <span class="pill">Moderní kombinace</span>
+            <span class="pill">Klasika i nápad</span>
+          </div>
+
+          <p class="lead">
+            Připravím kanapky a drobné občerstvení na <strong>plesy, rauty, oslavy i firemní večírky</strong>.
+            Rychlá domluva, spolehlivé dodání, chuť, která udělá dojem.
+          </p>
+
+          <div class="ctaRow" id="kontakt">
+            <a class="btn primary" href="tel:+420728206101">📞 Zavolat</a>
+            <a class="btn" href="mailto:kanapkaodpepka@gmail.com?subject=Popt%C3%A1vka%20%E2%80%93%20Kanapka%20od%20Pepka">✉️ Napsat e-mail</a>
+            <a class="btn" href="#poptavka">📝 Rychlá poptávka</a>
+          </div>
+
+          <p class="small" style="margin-top:10px;">
+            Telefon: <a class="under" href="tel:+420728206101">+420 728 206 101</a> •
+            E-mail: <a class="under" href="mailto:kanapkaodpepka@gmail.com">kanapkaodpepka@gmail.com</a>
+          </p>
+        </div>
+
+        <aside class="card" aria-label="Rychlé info">
+          <h3>Co nejčastěji řešíme</h3>
+          <ul class="list">
+            <li class="li"><span class="dot"></span><div><strong>Počet lidí</strong><br><span class="small">kolik hostů a jaký typ akce</span></div></li>
+            <li class="li"><span class="dot"></span><div><strong>Datum a místo</strong><br><span class="small">kdy a kam přivézt</span></div></li>
+            <li class="li"><span class="dot"></span><div><strong>Preference</strong><br><span class="small">maso / veggie / bez alergenů</span></div></li>
+            <li class="li"><span class="dot"></span><div><strong>Rozpočet</strong><br><span class="small">doporučím skladbu</span></div></li>
+          </ul>
+          <p class="small" style="margin-top:12px;">ZAL. 2026</p>
+        </aside>
+      </div>
+    </main>
+
+    <section class="section" id="nabidka">
+      <div class="card">
+        <h3>Nabídka</h3>
+        <p>Kanapky, mini chlebíčky, jednohubky a drobné slané občerstvení.</p>
+        <p class="small" style="margin-top:10px;">Tip: napiš, kolik hostů a jaký typ akce — navrhnu mix.</p>
+      </div>
+
+      <div class="card">
+        <h3>Pro jaké akce</h3>
+        <p>Plesy • rauty • oslavy • firemní večírky • rodinné akce.</p>
+        <p class="small" style="margin-top:10px;">Dodání domluvíme podle místa a času.</p>
+      </div>
+
+      <div class="card">
+        <h3>Proč právě my</h3>
+        <p>Čerstvé suroviny, čistá práce, rychlá domluva a chuť, co udělá dojem.</p>
+        <p class="small" style="margin-top:10px;">Můžu dodat i “safe” varianty podle domluvy.</p>
+      </div>
+    </section>
+
+    <section class="section" id="jak">
+      <div class="card">
+        <h3>1) Napiš / zavolej</h3>
+        <p>Počet lidí, datum, místo a případné preference.</p>
+      </div>
+      <div class="card">
+        <h3>2) Navrhnu skladbu</h3>
+        <p>Doporučím kombinace a množství podle typu akce.</p>
+      </div>
+      <div class="card" id="poptavka">
+        <h3>3) Potvrdíme a doručím</h3>
+        <p>Včas připravím a domluvíme předání/doručení.</p>
+        <p class="small" style="margin-top:10px;">
+          Rychlá poptávka: pošli e-mail a do předmětu dej <span class="kbd">Poptávka</span>.
+        </p>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div class="small">© <span id="y"></span> Kanapka od Pepka • kanapkaodpepka.cz</div>
+      <div class="small">
+        <a class="under" href="mailto:kanapkaodpepka@gmail.com">kanapkaodpepka@gmail.com</a>
+        • <a class="under" href="tel:+420728206101">+420
