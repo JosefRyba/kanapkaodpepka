@@ -1,296 +1,731 @@
 <!doctype html>
 <html lang="cs">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kanapka od Pepka</title>
-  <meta name="description" content="Kanapky na plesy, rauty, oslavy a firemní večírky. Čerstvé suroviny, moderní kombinace, klasika i nápad." />
-  <link rel="canonical" href="https://kanapkaodpepka.cz/" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f3ea">
+  <title>Kanapka od Pepka | Catering a občerstvení</title>
+  <meta name="description" content="Kanapky, rauty a catering pro rodinné oslavy, svatby i firemní akce v Praze a Středočeském kraji. Ozvěte se pro nabídku na míru.">
+  <link rel="canonical" href="https://kanapkaodpepka.cz/">
+  <link rel="icon" href="assets/canape-mark-transparent.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kanapka od Pepka | Catering a občerstvení">
+  <meta property="og:description" content="Poctivé kanapky, rauty a občerstvení pro vaše oslavy i firemní akce.">
+  <meta property="og:url" content="https://kanapkaodpepka.cz/">
+  <meta property="og:image" content="https://kanapkaodpepka.cz/assets/hero-canapes.webp">
 
   <style>
-    :root{
-      --bg:#0b0c10;
-      --card:#11131a;
-      --text:#f4f6fb;
-      --muted:#b9c0d4;
-      --line:rgba(255,255,255,.10);
-      --accent:#ffcc33;
-      --accent2:#ff6a3d;
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
-      --radius: 20px;
-      --max: 1020px;
+    :root {
+      --cream: #f7f3ea;
+      --paper: #fffdf8;
+      --ink: #1f211d;
+      --muted: #696b64;
+      --coral: #ee674d;
+      --coral-dark: #cd4d36;
+      --olive: #52772b;
+      --olive-soft: #e7ecd9;
+      --line: #ded8cc;
+      --shadow: 0 22px 60px rgba(46, 38, 27, .12);
+      --radius: 24px;
+      --max: 1180px;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
       background:
-        radial-gradient(900px 500px at 15% 10%, rgba(255,204,51,.20), transparent 60%),
-        radial-gradient(800px 500px at 85% 15%, rgba(255,106,61,.18), transparent 60%),
-        radial-gradient(900px 700px at 50% 90%, rgba(120,90,255,.12), transparent 60%),
-        var(--bg);
-      line-height:1.5;
+        radial-gradient(circle at 3% 12%, rgba(238, 103, 77, .10), transparent 24rem),
+        radial-gradient(circle at 97% 70%, rgba(82, 119, 43, .10), transparent 26rem),
+        var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
     }
 
-    a{color:inherit; text-decoration:none}
-    a.under{text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px}
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
 
-    .wrap{max-width:var(--max); margin:0 auto; padding: 28px 18px 70px;}
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 10px 6px 24px;
+    .container { width: min(calc(100% - 36px), var(--max)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 13px;
+      color: var(--olive);
+      font-size: .78rem;
+      font-weight: 850;
+      letter-spacing: .15em;
+      text-transform: uppercase;
     }
-    .brand{
-      display:flex; gap:10px; align-items:center;
-      font-weight:800; letter-spacing:.6px;
-    }
-    .logo{
-      width:38px; height:38px; border-radius:12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 12px 30px rgba(255, 150, 50, .25);
-    }
-    .navlinks{display:flex; gap:14px; color:var(--muted); font-weight:600; font-size:14px;}
-    .navlinks a{padding:10px 12px; border-radius:12px; border:1px solid transparent}
-    .navlinks a:hover{border-color:var(--line); background: rgba(255,255,255,.04)}
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: currentColor; }
 
-    .hero{
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
+    .site-header {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      background: rgba(247, 243, 234, .9);
+      border-bottom: 1px solid rgba(222, 216, 204, .8);
+      backdrop-filter: blur(14px);
     }
-    .hero:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(600px 260px at 30% 0%, rgba(255,204,51,.18), transparent 65%),
-                  radial-gradient(600px 260px at 80% 10%, rgba(255,106,61,.16), transparent 65%);
-      pointer-events:none;
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
-
-    .grid{
-      position:relative;
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    @media (max-width: 900px){
-      .grid{grid-template-columns:1fr}
-    }
-
-    h1{
-      margin:0;
-      font-size: clamp(34px, 5vw, 54px);
-      letter-spacing: .6px;
-      line-height:1.05;
-    }
-    .tag{
-      display:inline-flex; gap:10px; align-items:center;
-      margin-top: 14px;
-      color: var(--muted);
-      font-weight:600;
-    }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px;
-      border-radius: 999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      font-size: 13px;
-      color: var(--muted);
-      white-space:nowrap;
-    }
-
-    .lead{
-      margin: 14px 0 0;
-      font-size: 16px;
-      color: var(--muted);
-      max-width: 60ch;
-    }
-
-    .ctaRow{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top: 18px;
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      font-weight: 800;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      transition: transform .08s ease, background .12s ease, border-color .12s ease;
-    }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.18);}
-    .btn.primary{
-      border-color: transparent;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color:#1a1200;
-      box-shadow: 0 18px 40px rgba(255, 150, 50, .20);
-    }
-    .btn.primary:hover{background: linear-gradient(135deg, #ffd34d, #ff7a52);}
-
-    .card{
-      border:1px solid var(--line);
-      background: rgba(15,17,23,.65);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: 0 14px 40px rgba(0,0,0,.25);
-      position:relative;
-    }
-    .card h3{margin:0 0 10px; font-size: 16px; letter-spacing:.2px}
-    .card p{margin:0; color:var(--muted)}
-    .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px}
-    .li{
-      display:flex; gap:10px; align-items:flex-start;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-    }
-    .dot{
-      width:10px; height:10px; margin-top:5px; border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    .brand { display: inline-flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 74px;
+      height: 64px;
+      object-fit: contain;
       flex: 0 0 auto;
     }
+    .brand-name { line-height: 1.02; }
+    .brand-name strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.08rem;
+      letter-spacing: .12em;
+    }
+    .brand-name span {
+      display: block;
+      margin-top: 5px;
+      color: var(--coral-dark);
+      font-size: .66rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .nav-links { display: flex; align-items: center; gap: 27px; font-size: .94rem; font-weight: 720; }
+    .nav-links > a:not(.button) { position: relative; }
+    .nav-links > a:not(.button)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -6px;
+      left: 0;
+      height: 2px;
+      background: var(--coral);
+      transform: scaleX(0);
+      transition: transform .2s ease;
+    }
+    .nav-links > a:hover::after { transform: scaleX(1); }
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 1.35rem;
+    }
 
-    .section{
-      margin-top: 18px;
-      display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 20px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ink);
+      font-weight: 820;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(40, 34, 25, .12); }
+    .button.primary { border-color: var(--coral); background: var(--coral); color: #fff; }
+    .button.primary:hover { background: var(--coral-dark); }
+    .button.light { border-color: rgba(255, 255, 255, .7); color: #fff; }
+
+    .hero { padding: 86px 0 52px; }
+    .hero-grid {
+      display: block;
+    }
+    .hero-copy {
+      max-width: 930px;
+      margin-inline: auto;
+      text-align: center;
+    }
+    .hero h1 {
+      max-width: 900px;
+      margin: 0 auto;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.9rem, 6.2vw, 5.65rem);
+      font-weight: 500;
+      letter-spacing: -.045em;
+      line-height: .97;
+    }
+    .hero h1 em { color: var(--coral); font-weight: 500; }
+    .hero-lead {
+      max-width: 610px;
+      margin: 25px auto 0;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 2vw, 1.2rem);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
+    .location {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 700;
+    }
+    .location svg { flex: 0 0 auto; color: var(--olive); }
+    .benefits { padding: 25px 0 74px; }
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-block: 1px solid var(--line);
+    }
+    .benefit {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 23px 28px;
+    }
+    .benefit + .benefit { border-left: 1px solid var(--line); }
+    .benefit-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--olive-soft);
+      color: var(--olive);
+      font-size: 1.15rem;
+    }
+    .benefit strong { display: block; font-size: .92rem; }
+    .benefit span { color: var(--muted); font-size: .82rem; }
+
+    .section { padding: 86px 0; }
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 38px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.25rem, 4.8vw, 4rem);
+      font-weight: 500;
+      letter-spacing: -.035em;
+      line-height: 1.04;
+    }
+    .section-head p { max-width: 650px; margin: 17px 0 0; color: var(--muted); font-size: 1.04rem; }
+
+    .offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .offer-card {
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .offer-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .offer-card:nth-child(2) { background: var(--olive); color: #fff; }
+    .offer-card:nth-child(2) p, .offer-card:nth-child(2) li { color: rgba(255, 255, 255, .78); }
+    .offer-number { color: var(--coral); font-weight: 900; letter-spacing: .08em; }
+    .offer-card:nth-child(2) .offer-number { color: #f6c3b8; }
+    .offer-card h3 { margin: auto 0 11px; font-family: Georgia, serif; font-size: 1.65rem; font-weight: 500; }
+    .offer-card p { margin: 0; color: var(--muted); }
+    .offer-list { display: grid; gap: 7px; margin: 18px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: .9rem; }
+    .offer-list li::before { content: "•"; margin-right: 8px; color: var(--coral); }
+
+    .gallery-section { padding-top: 32px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
-    @media (max-width: 900px){
-      .section{grid-template-columns: 1fr}
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      margin: 0;
+      border-radius: 20px;
+      background: var(--paper);
+      box-shadow: 0 12px 32px rgba(46, 38, 27, .10);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .35s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.025); }
+    .gallery-item.wide {
+      grid-column: span 2;
+      aspect-ratio: 8 / 5;
+    }
+    .gallery-item figcaption {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      left: 12px;
+      padding: 9px 11px;
+      border-radius: 12px;
+      background: rgba(255, 253, 248, .9);
+      color: var(--ink);
+      font-size: .78rem;
+      font-weight: 800;
+      text-align: center;
+      backdrop-filter: blur(8px);
     }
 
-    .small{
-      font-size: 13px;
+    .occasions { background: var(--ink); color: #fff; }
+    .occasions .eyebrow { color: #b9d28f; }
+    .occasions .section-head p { color: rgba(255, 255, 255, .67); }
+    .occasion-list { display: flex; flex-wrap: wrap; gap: 12px; }
+    .occasion-pill {
+      padding: 13px 18px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .06);
+      color: rgba(255, 255, 255, .88);
+      font-weight: 720;
+    }
+    .occasion-callout {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 28px;
+      margin-top: 48px;
+      padding-top: 34px;
+      border-top: 1px solid rgba(255, 255, 255, .14);
+    }
+    .occasion-callout strong { display: block; font-family: Georgia, serif; font-size: 1.8rem; font-weight: 500; }
+    .occasion-callout span { color: rgba(255, 255, 255, .64); }
+
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .process-step { position: relative; padding: 30px 27px 0; border-top: 1px solid var(--line); }
+    .step-number {
+      width: 47px;
+      height: 47px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 24px;
+      border-radius: 50%;
+      background: var(--coral);
+      color: #fff;
+      font-family: Georgia, serif;
+      font-size: 1.25rem;
+    }
+    .process-step h3 { margin: 0 0 9px; font-family: Georgia, serif; font-size: 1.45rem; font-weight: 500; }
+    .process-step p { margin: 0; color: var(--muted); }
+
+    .contact-section { padding-top: 20px; }
+    .contact-shell {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+    .contact-shell-info { grid-template-columns: 1fr 1fr; }
+    .contact-info { padding: clamp(32px, 5vw, 58px); background: var(--olive); color: #fff; }
+    .contact-info .eyebrow { color: #d6e9b3; }
+    .contact-info h2 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.25rem, 4vw, 3.5rem); font-weight: 500; line-height: 1.02; }
+    .contact-info > p { margin: 18px 0 32px; color: rgba(255, 255, 255, .74); }
+    .contact-item { display: flex; gap: 13px; margin-top: 18px; }
+    .contact-item span { color: rgba(255, 255, 255, .68); font-size: .85rem; }
+    .contact-item strong { display: block; font-size: 1rem; }
+    .contact-summary {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: clamp(32px, 5vw, 58px);
+    }
+    .contact-summary img {
+      width: min(100%, 330px);
+      max-height: 210px;
+      margin: 0 auto 22px;
+      object-fit: contain;
+    }
+    .contact-summary h3 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      font-weight: 500;
+      line-height: 1.08;
+    }
+    .contact-summary p { margin: 13px 0 0; color: var(--muted); }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 25px; }
+    .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; padding: clamp(28px, 5vw, 54px); }
+    .field { display: grid; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: .82rem; font-weight: 800; }
+    .field input, .field textarea, .field select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      outline: none;
+      background: #fff;
+      color: var(--ink);
+      padding: 13px 14px;
+      transition: border-color .18s ease, box-shadow .18s ease;
+    }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      border-color: var(--olive);
+      box-shadow: 0 0 0 3px rgba(82, 119, 43, .12);
+    }
+    .field textarea { min-height: 110px; resize: vertical; }
+    .form-footer { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 3px; }
+    .form-note { max-width: 310px; margin: 0; color: var(--muted); font-size: .76rem; }
+
+    .site-footer { padding: 58px 0 34px; }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
       color: var(--muted);
-      opacity: .9;
+      font-size: .86rem;
+    }
+    .footer-row a { color: var(--ink); font-weight: 750; }
+
+    @media (max-width: 900px) {
+      .nav-toggle { display: grid; place-items: center; }
+      .nav-links {
+        position: absolute;
+        top: 82px;
+        right: 0;
+        left: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 18px;
+        border-bottom: 1px solid var(--line);
+        background: var(--paper);
+        box-shadow: 0 18px 30px rgba(31, 33, 29, .1);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 8px; }
+      .contact-shell { grid-template-columns: 1fr; }
+      .hero { padding-top: 40px; }
+      .hero-copy { text-align: center; }
+      .hero .eyebrow, .hero-actions, .location { justify-content: center; }
+      .hero-lead { margin-inline: auto; }
+      .offer-grid { grid-template-columns: 1fr; }
+      .offer-card { min-height: 260px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .benefit-grid { grid-template-columns: 1fr; }
+      .benefit + .benefit { border-top: 1px solid var(--line); border-left: 0; }
+      .contact-info { text-align: center; }
+      .contact-item { justify-content: center; }
+      .contact-summary { align-items: center; text-align: center; }
+      .contact-actions { justify-content: center; }
     }
 
-    .footer{
-      margin-top: 16px;
-      padding: 18px 6px 0;
-      color: var(--muted);
-      display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center;
+    @media (max-width: 650px) {
+      .container { width: min(calc(100% - 24px), var(--max)); }
+      .brand-name strong { font-size: .92rem; }
+      .brand-name span { font-size: .58rem; }
+      .brand-mark { width: 62px; height: 54px; }
+      .nav { min-height: 72px; }
+      .nav-links { top: 72px; }
+      .hero { padding-top: 30px; }
+      .hero h1 { font-size: clamp(2.55rem, 14vw, 4.1rem); }
+      .benefits { padding-bottom: 48px; }
+      .benefit { padding-inline: 14px; }
+      .section { padding: 66px 0; }
+      .offer-card { padding: 25px; }
+      .gallery-grid { gap: 10px; }
+      .gallery-item { border-radius: 15px; }
+      .gallery-item figcaption { right: 8px; bottom: 8px; left: 8px; font-size: .7rem; }
+      .occasion-callout { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr; gap: 36px; }
+      .contact-form { grid-template-columns: 1fr; }
+      .field.full, .form-footer { grid-column: auto; }
+      .form-footer { align-items: stretch; flex-direction: column; }
+      .form-footer .button { width: 100%; }
+      .footer-row { flex-direction: column; }
     }
 
-    .kbd{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 12px;
-      padding: 2px 8px;
-      border-radius: 8px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color: var(--muted);
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>KANAPKA OD PEPKA</div>
-      </div>
-      <div class="navlinks">
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#nahoru" aria-label="Kanapka od Pepka – úvodní stránka">
+        <img class="brand-mark" src="assets/canape-mark-header.png" alt="" width="540" height="469">
+        <span class="brand-name">
+          <strong>KANAPKA OD PEPKA</strong>
+          <span>Catering &amp; občerstvení</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Otevřít menu">☰</button>
+      <nav class="nav-links" id="navigation" aria-label="Hlavní navigace">
         <a href="#nabidka">Nabídka</a>
-        <a href="#jak">Jak to funguje</a>
-        <a href="#kontakt">Kontakt</a>
-      </div>
+        <a href="#galerie">Fotky</a>
+        <a href="#prilezitosti">Pro jaké akce</a>
+        <a href="#jak-to-funguje">Jak to funguje</a>
+        <a class="button primary" href="#kontakt">Kontakt</a>
+      </nav>
     </div>
+  </header>
 
-    <main class="hero">
-      <div class="grid">
-        <div>
-          <h1>Kanapky, na které se budou ptát.</h1>
+  <main id="nahoru">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Poctivě připraveno pro vaši akci</p>
+          <h1>Kanapky, na které se budou <em>ptát.</em></h1>
+          <p class="hero-lead">Připravíme pro vás čerstvé kanapky, drobné občerstvení i celý raut. Od rodinné oslavy až po firemní večírek – vždy podle vašich představ.</p>
 
-          <div class="tag">
-            <span class="pill">Čerstvé suroviny</span>
-            <span class="pill">Moderní kombinace</span>
-            <span class="pill">Klasika i nápad</span>
+          <div class="hero-actions">
+            <a class="button primary" href="#kontakt">Nezávazně se ozvat</a>
+            <a class="button" href="tel:+420728206101">Zavolat 728 206 101</a>
           </div>
 
-          <p class="lead">
-            Připravím kanapky a drobné občerstvení na <strong>plesy, rauty, oslavy i firemní večírky</strong>.
-            Rychlá domluva, spolehlivé dodání, chuť, která udělá dojem.
-          </p>
-
-          <div class="ctaRow" id="kontakt">
-            <a class="btn primary" href="tel:+420728206101">📞 Zavolat</a>
-            <a class="btn" href="mailto:kanapkaodpepka@gmail.com?subject=Popt%C3%A1vka%20%E2%80%93%20Kanapka%20od%20Pepka">✉️ Napsat e-mail</a>
-            <a class="btn" href="#poptavka">📝 Rychlá poptávka</a>
-          </div>
-
-          <p class="small" style="margin-top:10px;">
-            Telefon: <a class="under" href="tel:+420728206101">+420 728 206 101</a> •
-            E-mail: <a class="under" href="mailto:kanapkaodpepka@gmail.com">kanapkaodpepka@gmail.com</a>
+          <p class="location">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="2"/></svg>
+            Praha a Středočeský kraj
           </p>
         </div>
 
-        <aside class="card" aria-label="Rychlé info">
-          <h3>Co nejčastěji řešíme</h3>
-          <ul class="list">
-            <li class="li"><span class="dot"></span><div><strong>Počet lidí</strong><br><span class="small">kolik hostů a jaký typ akce</span></div></li>
-            <li class="li"><span class="dot"></span><div><strong>Datum a místo</strong><br><span class="small">kdy a kam přivézt</span></div></li>
-            <li class="li"><span class="dot"></span><div><strong>Preference</strong><br><span class="small">maso / veggie / bez alergenů</span></div></li>
-            <li class="li"><span class="dot"></span><div><strong>Rozpočet</strong><br><span class="small">doporučím skladbu</span></div></li>
-          </ul>
-          <p class="small" style="margin-top:12px;">ZAL. 2026</p>
-        </aside>
       </div>
-    </main>
+    </section>
+
+    <section class="benefits" aria-label="Výhody">
+      <div class="container benefit-grid">
+        <div class="benefit">
+          <span class="benefit-icon" aria-hidden="true">✓</span>
+          <div><strong>Čerstvé suroviny</strong><span>Vše připravujeme na konkrétní akci.</span></div>
+        </div>
+        <div class="benefit">
+          <span class="benefit-icon" aria-hidden="true">✦</span>
+          <div><strong>Nabídka na míru</strong><span>Skladbu přizpůsobíme hostům i rozpočtu.</span></div>
+        </div>
+        <div class="benefit">
+          <span class="benefit-icon" aria-hidden="true">⌖</span>
+          <div><strong>Dovoz po domluvě</strong><span>Praha a široké okolí ve Středočeském kraji.</span></div>
+        </div>
+      </div>
+    </section>
 
     <section class="section" id="nabidka">
-      <div class="card">
-        <h3>Nabídka</h3>
-        <p>Kanapky, mini chlebíčky, jednohubky a drobné slané občerstvení.</p>
-        <p class="small" style="margin-top:10px;">Tip: napiš, kolik hostů a jaký typ akce — navrhnu mix.</p>
-      </div>
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Naše nabídka</p>
+          <h2>Dobré jídlo, které zároveň dobře vypadá.</h2>
+          <p>Nemusíte vybírat z jedné pevné sestavy. Napište nám, jakou chystáte akci, a navrhneme vhodnou skladbu i množství.</p>
+        </header>
 
-      <div class="card">
-        <h3>Pro jaké akce</h3>
-        <p>Plesy • rauty • oslavy • firemní večírky • rodinné akce.</p>
-        <p class="small" style="margin-top:10px;">Dodání domluvíme podle místa a času.</p>
-      </div>
+        <div class="offer-grid">
+          <article class="offer-card">
+            <span class="offer-number">01</span>
+            <h3>Kanapky &amp; finger food</h3>
+            <p>Malé sousto, které se dobře servíruje a ještě lépe jí.</p>
+            <ul class="offer-list">
+              <li>klasické i moderní kombinace</li>
+              <li>masové a vegetariánské varianty</li>
+              <li>mix sestavený podle typu akce</li>
+            </ul>
+          </article>
 
-      <div class="card">
-        <h3>Proč právě my</h3>
-        <p>Čerstvé suroviny, čistá práce, rychlá domluva a chuť, co udělá dojem.</p>
-        <p class="small" style="margin-top:10px;">Můžu dodat i “safe” varianty podle domluvy.</p>
+          <article class="offer-card">
+            <span class="offer-number">02</span>
+            <h3>Catering &amp; rauty</h3>
+            <p>Občerstvení pro soukromé i firemní události bez starostí.</p>
+            <ul class="offer-list">
+              <li>studené i teplé občerstvení</li>
+              <li>servírování podle možností místa</li>
+              <li>dovoz a předání po domluvě</li>
+            </ul>
+          </article>
+
+          <article class="offer-card">
+            <span class="offer-number">03</span>
+            <h3>Sladké &amp; doplňky</h3>
+            <p>Doladíme stůl drobnými dezerty a dalšími dobrotami.</p>
+            <ul class="offer-list">
+              <li>muffiny a dortová lízátka</li>
+              <li>drobné dezerty</li>
+              <li>individuální doplnění nabídky</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="jak">
-      <div class="card">
-        <h3>1) Napiš / zavolej</h3>
-        <p>Počet lidí, datum, místo a případné preference.</p>
-      </div>
-      <div class="card">
-        <h3>2) Navrhnu skladbu</h3>
-        <p>Doporučím kombinace a množství podle typu akce.</p>
-      </div>
-      <div class="card" id="poptavka">
-        <h3>3) Potvrdíme a doručím</h3>
-        <p>Včas připravím a domluvíme předání/doručení.</p>
-        <p class="small" style="margin-top:10px;">
-          Rychlá poptávka: pošli e-mail a do předmětu dej <span class="kbd">Poptávka</span>.
-        </p>
+    <section class="section gallery-section" id="galerie">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Ukázky občerstvení</p>
+          <h2>Od kanapek až po celý raut.</h2>
+          <p>Nabídku poskládáme podle charakteru akce, počtu hostů a vašich chutí.</p>
+        </header>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img src="assets/gallery-canapes-salmon.webp" alt="Lososové kanapky s mikrobylinkami" width="1086" height="1448" loading="lazy">
+            <figcaption>Lososové kanapky</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/gallery-canapes-tomato.webp" alt="Kanapky se sušenými rajčaty, krémem a mikrobylinkami" width="1086" height="1448" loading="lazy">
+            <figcaption>Kanapky pro každou příležitost</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/gallery-event-canapes.webp" alt="Kanapkový raut připravený na slavnostní akci" width="1086" height="1448" loading="lazy">
+            <figcaption>Kanapkový raut</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/gallery-event-wraps.webp" alt="Cateringový stůl s wrapy připravený pro firemní akci" width="1086" height="1448" loading="lazy">
+            <figcaption>Občerstvení pro firemní akce</figcaption>
+          </figure>
+          <figure class="gallery-item wide">
+            <img src="assets/gallery-croissants.webp" alt="Mini croissanty plněné krémem a čerstvým ovocem" width="1400" height="1050" loading="lazy">
+            <figcaption>Plněné mini croissanty</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
-    <div class="footer">
-      <div class="small">© <span id="y"></span> Kanapka od Pepka • kanapkaodpepka.cz</div>
-      <div class="small">
-        <a class="under" href="mailto:kanapkaodpepka@gmail.com">kanapkaodpepka@gmail.com</a>
-        • <a class="under" href="tel:+420728206101">+420
+    <section class="section occasions" id="prilezitosti">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Když se něco slaví</p>
+          <h2>Pro malé chvíle i velké události.</h2>
+          <p>Občerstvení připravíme podle charakteru akce, počtu hostů a způsobu servírování.</p>
+        </header>
+
+        <div class="occasion-list" aria-label="Typy akcí">
+          <span class="occasion-pill">Rodinné oslavy</span>
+          <span class="occasion-pill">Svatby</span>
+          <span class="occasion-pill">Firemní večírky</span>
+          <span class="occasion-pill">Rauty</span>
+          <span class="occasion-pill">Plesy</span>
+          <span class="occasion-pill">Narozeniny</span>
+          <span class="occasion-pill">Setkání a vernisáže</span>
+        </div>
+
+        <div class="occasion-callout">
+          <div>
+            <strong>Máte jinou představu?</strong>
+            <span>Stačí nám ji popsat. Rádi vymyslíme řešení právě pro vás.</span>
+          </div>
+          <a class="button light" href="#kontakt">Probrat moji akci</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="jak-to-funguje">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Jednoduchá domluva</p>
+          <h2>Od prvního nápadu ke stolu plnému dobrot.</h2>
+        </header>
+
+        <div class="process-grid">
+          <article class="process-step">
+            <span class="step-number">1</span>
+            <h3>Napište nám</h3>
+            <p>Pošlete datum, místo, počet hostů a základní představu o akci.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">2</span>
+            <h3>Navrhneme nabídku</h3>
+            <p>Doporučíme vhodnou skladbu občerstvení, množství a cenu.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-number">3</span>
+            <h3>Připravíme a předáme</h3>
+            <p>Vše připravíme čerstvé a domluvíme předání nebo dovoz.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="kontakt">
+      <div class="container contact-shell contact-shell-info">
+        <div class="contact-info">
+          <p class="eyebrow">Kontakt</p>
+          <h2>Povězte nám o své akci.</h2>
+          <p>Do zprávy stačí uvést datum, místo, počet hostů a základní představu. Ozveme se a společně doladíme možnosti.</p>
+
+          <a class="contact-item" href="tel:+420728206101">
+            <span aria-hidden="true">☎</span>
+            <div><span>Telefon</span><strong>+420 728 206 101</strong></div>
+          </a>
+          <a class="contact-item" href="mailto:kanapkaodpepka@gmail.com">
+            <span aria-hidden="true">✉</span>
+            <div><span>E-mail</span><strong>kanapkaodpepka@gmail.com</strong></div>
+          </a>
+          <div class="contact-item">
+            <span aria-hidden="true">⌖</span>
+            <div><span>Působíme v oblasti</span><strong>Praha a Středočeský kraj</strong></div>
+          </div>
+          <div class="contact-item">
+            <span aria-hidden="true">#</span>
+            <div><span>Provozovatel</span><strong>Josef Ryba · IČO 11824689</strong></div>
+          </div>
+        </div>
+
+        <div class="contact-summary">
+          <img src="assets/canape-mark-transparent.png" alt="Kanapka s uzeným lososem" width="420" height="369">
+          <h3>Objednávky přijímáme průběžně.</h3>
+          <p>Termín přípravy, vyzvednutí nebo rozvozu domluvíme individuálně podle typu a velikosti objednávky.</p>
+          <div class="contact-actions">
+            <a class="button primary" href="mailto:kanapkaodpepka@gmail.com?subject=Popt%C3%A1vka%20%E2%80%93%20Kanapka%20od%20Pepka">Napsat e-mail</a>
+            <a class="button" href="tel:+420728206101">Zavolat</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>© <span id="year"></span> Kanapka od Pepka</div>
+      <div><a href="mailto:kanapkaodpepka@gmail.com">kanapkaodpepka@gmail.com</a> &nbsp;•&nbsp; <a href="tel:+420728206101">+420 728 206 101</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navigation = document.querySelector('.nav-links');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navigation.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Zavřít menu' : 'Otevřít menu');
+      navToggle.textContent = isOpen ? '×' : '☰';
+    });
+
+    navigation.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navigation.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Otevřít menu');
+        navToggle.textContent = '☰';
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
