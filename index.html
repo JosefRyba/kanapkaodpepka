@@ -463,6 +463,26 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition-duration: .01ms !important; }
     }
+
+    /* Pepkovy boxy */
+    #boxy { scroll-margin-top: 100px; }
+    .box-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .box-card { overflow: hidden; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
+    .box-photo { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+    .box-content { display: flex; flex: 1; flex-direction: column; padding: 24px; }
+    .box-card h3 { margin: 0 0 10px; font-family: Georgia, serif; font-size: 1.6rem; font-weight: 500; }
+    .box-size { margin: 0; color: var(--olive); font-weight: 800; font-size: .9rem; }
+    .box-price { margin: 16px 0 8px; font-size: 1.7rem; font-weight: 850; letter-spacing: -.04em; }
+    .box-description { margin: 0 0 12px; color: var(--muted); font-size: .94rem; }
+    .box-guests { margin: auto 0 18px; font-size: .85rem; font-weight: 700; padding-top: 8px; }
+    .box-card .button { margin-top: auto; padding-inline: 12px; font-size: .88rem; text-align: center; }
+    .box-note { color: var(--muted); font-size: .85rem; }
+    .box-help { margin-top: 30px; padding: 25px; border-radius: 20px; background: var(--olive-soft); }
+    .box-help h3 { margin: 0 0 8px; font-family: Georgia, serif; font-size: 1.6rem; font-weight: 500; }
+    .box-help p { margin: 0; }
+    .box-card a:focus-visible { outline: 3px solid var(--olive); outline-offset: 4px; }
+    @media (max-width: 1100px) { .box-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .nav-links { gap: 16px; } }
+    @media (max-width: 600px) { .box-grid { grid-template-columns: 1fr; } .box-content { padding: 24px; } }
   </style>
 </head>
 
@@ -479,6 +499,7 @@
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Otevřít menu">☰</button>
       <nav class="nav-links" id="navigation" aria-label="Hlavní navigace">
+        <a href="#boxy">Pepkovy boxy</a>
         <a href="#nabidka">Nabídka</a>
         <a href="#galerie">Fotky</a>
         <a href="#prilezitosti">Pro jaké akce</a>
@@ -523,6 +544,67 @@
         <div class="benefit">
           <span class="benefit-icon" aria-hidden="true">⌖</span>
           <div><strong>Dovoz po domluvě</strong><span>Praha a široké okolí ve Středočeském kraji.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="boxy" aria-labelledby="boxy-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Na návštěvu i velkou oslavu</p>
+          <h2 id="boxy-title">Pepkovy boxy</h2>
+          <p>Hotové boxy plné kanapek pro každou příležitost. Vyberte si velikost s oblíbeným mixem, nebo si nechte připravit nabídku na míru.</p>
+        </header>
+        <div class="box-grid">
+          <article class="box-card">
+            <img class="box-photo" src="assets/gallery-canapes-salmon.webp" alt="Ukázka našich kanapek – ilustrační fotografie" width="1086" height="1448" loading="lazy">
+            <div class="box-content">
+              <h3>Pepkův MINI</h3>
+              <p class="box-size">24 ks / 4 druhy</p>
+              <p class="box-price">od 590 Kč</p>
+              <p class="box-description">Menší návštěva, pohoštění nebo oslava.</p>
+              <p class="box-guests">Orientačně pro 4–6 osob</p>
+              <a class="button" href="mailto:kanapkaodpepka@gmail.com?subject=Popt%C3%A1vka%20%E2%80%93%20Pepk%C5%AFv%20MINI&amp;body=Dobr%C3%BD%20den%2C%0D%0A%0D%0Am%C3%A1m%20z%C3%A1jem%20o%20Pepk%C5%AFv%20MINI%20(24%20ks%20%2F%204%20druhy).%0D%0ATerm%C3%ADn%3A%20%0D%0APo%C4%8Det%20host%C5%AF%3A%20%0D%0AVyzvednut%C3%AD%20%2F%20rozvoz%20(m%C3%ADsto)%3A%20%0D%0APreferovan%C3%A9%20druhy%20kanapek%3A%20%0D%0A%0D%0AD%C4%9Bkuji." aria-label="Nezávazně poptat box Pepkův MINI">Nezávazně poptat</a>
+            </div>
+          </article>
+          <article class="box-card">
+            <img class="box-photo" src="assets/gallery-canapes-tomato.webp" alt="Ukázka našich kanapek – ilustrační fotografie" width="1086" height="1448" loading="lazy">
+            <div class="box-content">
+              <h3>Pepkův PARTY</h3>
+              <p class="box-size">48 ks / 6 druhů</p>
+              <p class="box-price">od 1 190 Kč</p>
+              <p class="box-description">Na oslavu, posezení s přáteli nebo večírek.</p>
+              <p class="box-guests">Orientačně pro 8–12 osob</p>
+              <a class="button primary" href="mailto:kanapkaodpepka@gmail.com?subject=Popt%C3%A1vka%20%E2%80%93%20Pepk%C5%AFv%20PARTY&amp;body=Dobr%C3%BD%20den%2C%0D%0A%0D%0Am%C3%A1m%20z%C3%A1jem%20o%20Pepk%C5%AFv%20PARTY%20(48%20ks%20%2F%206%20druh%C5%AF).%0D%0ATerm%C3%ADn%3A%20%0D%0APo%C4%8Det%20host%C5%AF%3A%20%0D%0AVyzvednut%C3%AD%20%2F%20rozvoz%20(m%C3%ADsto)%3A%20%0D%0APreferovan%C3%A9%20druhy%20kanapek%3A%20%0D%0A%0D%0AD%C4%9Bkuji." aria-label="Nezávazně poptat box Pepkův PARTY">Nezávazně poptat</a>
+            </div>
+          </article>
+          <article class="box-card">
+            <img class="box-photo" src="assets/gallery-event-canapes.webp" alt="Ukázka našich kanapek – ilustrační fotografie" width="1086" height="1448" loading="lazy">
+            <div class="box-content">
+              <h3>Pepkův OSLAVA</h3>
+              <p class="box-size">72 ks / 6 druhů</p>
+              <p class="box-price">od 1 790 Kč</p>
+              <p class="box-description">Větší oslava, rodinná akce nebo firemní pohoštění.</p>
+              <p class="box-guests">Orientačně pro 12–18 osob</p>
+              <a class="button" href="mailto:kanapkaodpepka@gmail.com?subject=Popt%C3%A1vka%20%E2%80%93%20Pepk%C5%AFv%20OSLAVA&amp;body=Dobr%C3%BD%20den%2C%0D%0A%0D%0Am%C3%A1m%20z%C3%A1jem%20o%20Pepk%C5%AFv%20OSLAVA%20(72%20ks%20%2F%206%20druh%C5%AF).%0D%0ATerm%C3%ADn%3A%20%0D%0APo%C4%8Det%20host%C5%AF%3A%20%0D%0AVyzvednut%C3%AD%20%2F%20rozvoz%20(m%C3%ADsto)%3A%20%0D%0APreferovan%C3%A9%20druhy%20kanapek%3A%20%0D%0A%0D%0AD%C4%9Bkuji." aria-label="Nezávazně poptat box Pepkův OSLAVA">Nezávazně poptat</a>
+            </div>
+          </article>
+          <article class="box-card">
+            <img class="box-photo" src="assets/gallery-event-canapes.webp" alt="Ukázka našich kanapek – ilustrační fotografie" width="1086" height="1448" loading="lazy">
+            <div class="box-content">
+              <h3>Pepkův NA MÍRU</h3>
+              <p class="box-size">100+ ks / individuální mix</p>
+              <p class="box-price">cena na dotaz</p>
+              <p class="box-description">Na svatby, firemní akce a větší oslavy. Nabídku připravíme podle počtu hostů a typu akce.</p>
+              <p class="box-guests">Skladba podle vašich představ</p>
+              <a class="button" href="mailto:kanapkaodpepka@gmail.com?subject=Popt%C3%A1vka%20%E2%80%93%20Pepk%C5%AFv%20NA%20M%C3%8DRU&amp;body=Dobr%C3%BD%20den%2C%0D%0A%0D%0Am%C3%A1m%20z%C3%A1jem%20o%20Pepk%C5%AFv%20NA%20M%C3%8DRU%20(100%2B%20ks%20%2F%20individu%C3%A1ln%C3%AD%20mix).%0D%0ATerm%C3%ADn%3A%20%0D%0APo%C4%8Det%20host%C5%AF%3A%20%0D%0AVyzvednut%C3%AD%20%2F%20rozvoz%20(m%C3%ADsto)%3A%20%0D%0APreferovan%C3%A9%20druhy%20kanapek%3A%20%0D%0A%0D%0AD%C4%9Bkuji." aria-label="Nezávazně poptat box Pepkův NA MÍRU">Poslat poptávku</a>
+            </div>
+          </article>
+        </div>
+        <p class="box-note">Fotografie jsou ukázkou našich kanapek, nikoli přesného obsahu boxů. Uvedené ceny jsou orientační a mohou se lišit podle vybraných druhů kanapek.</p>
+        <div class="box-help">
+          <h3>Jak si box objednat?</h3>
+          <p>Napište nám termín, počet hostů a zda preferujete osobní vyzvednutí nebo rozvoz. Rádi doporučíme vhodnou velikost i skladbu kanapek. Rozvoz po Praze a Středočeském kraji po domluvě.</p>
         </div>
       </div>
     </section>
