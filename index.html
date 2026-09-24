@@ -483,6 +483,20 @@
     .box-card a:focus-visible { outline: 3px solid var(--olive); outline-offset: 4px; }
     @media (max-width: 1100px) { .box-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .nav-links { gap: 16px; } }
     @media (max-width: 600px) { .box-grid { grid-template-columns: 1fr; } .box-content { padding: 24px; } }
+
+    /* Druhy kanapek */
+    #druhy, #kde-nas-potkate { scroll-margin-top: 100px; }
+    .flavor-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+    .flavor-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
+    .flavor-item span { font-weight: 650; }
+    .flavor-item strong { flex: 0 0 auto; color: var(--olive); font-size: .95rem; }
+    .flavor-note { margin-top: 18px; color: var(--muted); font-size: .88rem; }
+    .events-empty { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: center; padding: 30px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--olive-soft); }
+    .events-empty h3 { margin: 0 0 8px; font-family: Georgia, serif; font-size: 1.8rem; font-weight: 500; }
+    .events-empty p { margin: 0; color: var(--muted); }
+    .events-empty .button { justify-self: end; }
+    @media (max-width: 900px) { .flavor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .events-empty { grid-template-columns: 1fr; } .events-empty .button { justify-self: start; } }
+    @media (max-width: 600px) { .flavor-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 
@@ -499,9 +513,9 @@
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Otevřít menu">☰</button>
       <nav class="nav-links" id="navigation" aria-label="Hlavní navigace">
-        <a href="#boxy">Pepkovy boxy</a>
+        <a href="#boxy">Pepkovy boxy</a>\n        <a href="#druhy">Druhy kanapek</a>
         <a href="#nabidka">Nabídka</a>
-        <a href="#galerie">Fotky</a>
+        <a href="#kde-nas-potkate">Kde nás potkáte</a>\n        <a href="#galerie">Fotky</a>
         <a href="#prilezitosti">Pro jaké akce</a>
         <a href="#jak-to-funguje">Jak to funguje</a>
         <a class="button primary" href="#kontakt">Kontakt</a>
@@ -573,7 +587,7 @@
               <h3>Pepkův PARTY</h3>
               <p class="box-size">48 ks / 6 druhů</p>
               <p class="box-price">od 1 190 Kč</p>
-              <p class="box-description">Na oslavu, posezení s přáteli nebo večírek.</p>
+              <p class="box-description">Nejoblíbenější volba na oslavu nebo večírek.</p>
               <p class="box-guests">Orientačně pro 8–12 osob</p>
               <a class="button primary" href="mailto:kanapkaodpepka@gmail.com?subject=Popt%C3%A1vka%20%E2%80%93%20Pepk%C5%AFv%20PARTY&amp;body=Dobr%C3%BD%20den%2C%0D%0A%0D%0Am%C3%A1m%20z%C3%A1jem%20o%20Pepk%C5%AFv%20PARTY%20(48%20ks%20%2F%206%20druh%C5%AF).%0D%0ATerm%C3%ADn%3A%20%0D%0APo%C4%8Det%20host%C5%AF%3A%20%0D%0AVyzvednut%C3%AD%20%2F%20rozvoz%20(m%C3%ADsto)%3A%20%0D%0APreferovan%C3%A9%20druhy%20kanapek%3A%20%0D%0A%0D%0AD%C4%9Bkuji." aria-label="Nezávazně poptat box Pepkův PARTY">Nezávazně poptat</a>
             </div>
@@ -605,6 +619,48 @@
         <div class="box-help">
           <h3>Jak si box objednat?</h3>
           <p>Napište nám termín, počet hostů a zda preferujete osobní vyzvednutí nebo rozvoz. Rádi doporučíme vhodnou velikost i skladbu kanapek. Rozvoz po Praze a Středočeském kraji po domluvě.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="druhy" aria-labelledby="druhy-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Vyberte si svůj mix</p>
+          <h2 id="druhy-title">Druhy kanapek</h2>
+          <p>Od klasiky po prémiové varianty. Do boxů vám rádi namícháme pestrou kombinaci, nebo si vyberte své oblíbené druhy.</p>
+        </header>
+        <div class="flavor-grid">
+          <div class="flavor-item"><span>Uzený losos</span><strong>29 Kč / ks</strong></div>
+          <div class="flavor-item"><span>Mortadela</span><strong>25 Kč / ks</strong></div>
+          <div class="flavor-item"><span>Roastbeef</span><strong>29 Kč / ks</strong></div>
+          <div class="flavor-item"><span>Vajíčková pomazánka</span><strong>22 Kč / ks</strong></div>
+          <div class="flavor-item"><span>Pomazánka z čerstvého sýra</span><strong>22 Kč / ks</strong></div>
+          <div class="flavor-item"><span>Pomazánka ze sušených rajčat</span><strong>22 Kč / ks</strong></div>
+          <div class="flavor-item"><span>Uherský salám</span><strong>25 Kč / ks</strong></div>
+          <div class="flavor-item"><span>Červená řepa &amp; kozí sýr</span><strong>29 Kč / ks</strong></div>
+          <div class="flavor-item"><span>Šunka</span><strong>22 Kč / ks</strong></div>
+          <div class="flavor-item"><span>Sýr</span><strong>22 Kč / ks</strong></div>
+          <div class="flavor-item"><span>Pažitková pomazánka</span><strong>22 Kč / ks</strong></div>
+        </div>
+        <p class="flavor-note">Ceny jsou uvedené za 1 kus. Konkrétní skladbu boxu doladíme podle vašich chutí a dostupnosti surovin.</p>
+      </div>
+    </section>
+
+    <section class="section" id="kde-nas-potkate" aria-labelledby="events-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Ochutnejte nás naživo</p>
+          <h2 id="events-title">Kde nás potkáte</h2>
+          <p>Naše veřejné akce a stánky budeme průběžně doplňovat sem.</p>
+        </header>
+        <div class="events-empty">
+          <div>
+            <h3>Další termíny brzy doplníme</h3>
+            <p>Sledujte nás také na sociálních sítích. A pokud chcete Kanapku od Pepka na své akci, napište nám.</p>
+          </div>
+          <a class="button primary" href="#kontakt">Chci občerstvení na svou akci</a>
         </div>
       </div>
     </section>
