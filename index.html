@@ -491,12 +491,20 @@
     .flavor-item span { font-weight: 650; }
     .flavor-item strong { flex: 0 0 auto; color: var(--olive); font-size: .95rem; }
     .flavor-note { margin-top: 18px; color: var(--muted); font-size: .88rem; }
-    .events-empty { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: center; padding: 30px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--olive-soft); }
-    .events-empty h3 { margin: 0 0 8px; font-family: Georgia, serif; font-size: 1.8rem; font-weight: 500; }
-    .events-empty p { margin: 0; color: var(--muted); }
-    .events-empty .button { justify-self: end; }
-    @media (max-width: 900px) { .flavor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .events-empty { grid-template-columns: 1fr; } .events-empty .button { justify-self: start; } }
-    @media (max-width: 600px) { .flavor-grid { grid-template-columns: 1fr; } }
+    .events-list { display: grid; gap: 22px; }
+    .event-card { display: grid; grid-template-columns: minmax(240px, .72fr) 1.28fr; gap: 28px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); box-shadow: 0 16px 42px rgba(46, 38, 27, .08); }
+    .event-poster-wrap { background: #f6ead8; }
+    .event-poster { width: 100%; height: 100%; min-height: 420px; object-fit: cover; object-position: top center; }
+    .event-content { display: flex; flex-direction: column; justify-content: center; padding: 34px 34px 34px 4px; }
+    .event-date { margin: 0 0 10px; color: var(--coral-dark); font-size: .83rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .event-card h3 { margin: 0 0 12px; font-family: Georgia, serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 500; line-height: 1.05; }
+    .event-lead { margin: 0 0 22px; color: var(--muted); }
+    .event-meta { display: grid; gap: 10px; margin: 0 0 24px; padding: 0; list-style: none; }
+    .event-meta li { display: flex; gap: 10px; align-items: baseline; }
+    .event-meta strong { min-width: 72px; color: var(--ink); }
+    .event-card .button { align-self: flex-start; }
+    @media (max-width: 900px) { .flavor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .event-card { grid-template-columns: 1fr; } .event-poster { max-height: 620px; min-height: 0; object-fit: contain; } .event-content { padding: 28px; } }
+    @media (max-width: 600px) { .flavor-grid { grid-template-columns: 1fr; } .event-content { padding: 24px; } }
   </style>
 </head>
 
@@ -653,14 +661,25 @@
         <header class="section-head">
           <p class="eyebrow">Ochutnejte nás naživo</p>
           <h2 id="events-title">Kde nás potkáte</h2>
-          <p>Naše veřejné akce a stánky budeme průběžně doplňovat sem.</p>
+          <p>Veřejné akce, na kterých pro vás připravujeme občerstvení.</p>
         </header>
-        <div class="events-empty">
-          <div>
-            <h3>Další termíny brzy doplníme</h3>
-            <p>Sledujte nás také na sociálních sítích. A pokud chcete Kanapku od Pepka na své akci, napište nám.</p>
-          </div>
-          <a class="button primary" href="#kontakt">Chci občerstvení na svou akci</a>
+
+        <div class="events-list">
+          <article class="event-card">
+            <div class="event-poster-wrap">
+              <img class="event-poster" src="assets/akce-vojkovice-17-10-2026.webp" alt="Plakát akce Prodej své oblečení Vol. 2 ve Vojkovicích" width="700" height="939" loading="lazy">
+            </div>
+            <div class="event-content">
+              <p class="event-date">17. 10. 2026 · 11:00–16:00</p>
+              <h3>Prodej své oblečení! Vol. 2</h3>
+              <p class="event-lead">Přijďte na setkání lidí, kteří dávají oblečení druhou šanci. Po celou dobu akce budeme zajišťovat občerstvení.</p>
+              <ul class="event-meta">
+                <li><strong>Kdy</strong><span>sobota 17. října 2026, 11:00–16:00</span></li>
+                <li><strong>Kde</strong><span>Vojkovice 18, 277 44 · Obecní sál</span></li>
+              </ul>
+              <a class="button primary" href="assets/akce-vojkovice-17-10-2026.webp" target="_blank" rel="noopener">Zobrazit plakát</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
